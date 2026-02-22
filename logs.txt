@@ -1,0 +1,15 @@
+2026-02-17 09:00 LOGIN SUCCESS user:kali IP:192.168.4.6   // login succ., normal working time, private ip  --> NORMAL
+2026-02-17 09:05 LOGIN FAILED user:kali IP:192.168.2.3      // login failed, same user bt diffrent ip --> NORMAL
+2026-02-17 09:07 LOGIN FAILED user:kali IP:192.168.2.3      // ip repeat, again failed  --> WARNING START
+2026-02-17 09:10 LOGIN FAILED user:kali IP:192.168.2.3     // same ip, failed 3 attempt within 5 minutes  --> SUSPICIOUS ,    SOC RULE - Multiple failed logins = Alert
+2026-02-17 02:15 ADMIN LOGIN  user:admin IP:45.10.2.6  // admin acc, night time login , externle ip, successfull login  --> HIGHLY SUSPICIOUS 
+
+
+NORMAL :-
+--> First login success
+--> First failed attempt
+
+SUSPICIOUS :- 
+--> 3 failed login attempts (possible brute force)
+--> Admin login at 2:15 AM from external IP (High Risk)
+ 
